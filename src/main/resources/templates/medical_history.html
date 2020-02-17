@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+    <meta charset="UTF-8">
+    <title>medical_history</title>
+</head>
+<body>
+Twoja historia chorób:
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Poczatek choroby</th>
+        <th scope="col">Data wyleczenia</th>
+        <th scope="col">Choroba</th>
+        <th scope="col">Opis</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each=" medHistory : ${medical_history}">
+<!--        <td><span th:text="${medHistory.id}"/></td>         -->
+        <td><span th:text="${medHistory.sicknessStart}"/></td>
+        <td><span th:text="${medHistory.sicknessEnd}"/></td>
+        <td><span th:text="${medHistory.disease}"/></td>
+        <td><span th:text="${medHistory.description}"/></td>
+        <td><a class="btn btn-outline-success" role="button" th:href="@{../delete?id=} + ${medHistory.id}">Usuń</a></td>
+        <td><a class="btn btn-outline-success" role="button"th:href="@{../edit?id=} + ${medHistory.id}">Edytuj</a></td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn btn-outline-success" role="button" th:href="@{/create}">Dodaj nowa chorobe</a>
+</body>
+</html>

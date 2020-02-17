@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+    <meta charset="UTF-8">
+    <title>Paszport Medyczny</title>
+
+</head>
+<body>
+
+Paszport Medyczny <span th:text="${todayDate}"/>
+
+<ul>
+
+    <div sec:authorize="hasRole('PATIENT')">
+        <a class="btn btn-outline-success" role="button" th:href="@{/medical_history}" >Twoja historia chorób</a>
+    </div>
+
+    <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
+
+<!--        Zalogowany jako: <span sec:authentication="name"></span> |-->
+<!--        Rola: <span sec:authentication="principal.authorities"></span>-->
+
+        <div>
+            <br>
+            <form th:action="@{/logout}" method="POST">
+                <input class="btn btn-outline-success" type="submit" value="Wyloguj" />
+            </form>
+        </div>
+    </div>
+
+    <div th:fragment="login" class="logout" sec:authorize="isAnonymous()">
+
+        <a  class="btn btn-outline-success" role="button" th:href="@{/login}">Zaloguj się</a>
+    </div>
+
+</ul>
+
+
+</body>
+</html>

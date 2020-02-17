@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<form th:action="@{/authenticate}" method="POST" >
+    <table>
+        <tr><td>Login:</td><td><input type="text" id="username" name="username"/></td></tr>
+        <tr><td>Hasło:</td><td><input type="password" id="password" name="password"/></td></tr>
+
+        <tr><td><button type="submit" class="btn btn-outline-success">Zaloguj</button></td></tr>
+    </table>
+</form>
+
+</body>
+</html>

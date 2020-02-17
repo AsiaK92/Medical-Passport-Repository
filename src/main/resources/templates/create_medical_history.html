@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+    <meta charset="UTF-8">
+    <title>Paszport Medyczny</title>
+</head>
+<body>
+<form th:action="@{/create}" method="POST" th:object="${medical_history}">
+
+    <table  class="table table-hover">
+        <tr><td></td><td><input type="hidden" id="id" name="id" th:value="${medical_history.id}"/></td></tr>
+        <tr><td>Nazwa choroby:</td><td><input type="text" id="disease" name="disease" th:value="${medical_history.disease}"/></td></tr>
+        <tr><td>Opis choroby:</td><td><input type="text" id="description" name="description" th:value="${medical_history.description}"/></td></tr>
+        <tr><td>Data rozpoczecia choroby :</td><td><input type="date" id="sicknessStart" name="sicknessStart" th:value="${medical_history.sicknessStart}"/></td></tr>
+        <tr><td>Data zakończenia choroby :</td><td><input type="date" id="sicknessEnd" name="sicknessEnd" th:value="${medical_history.sicknessEnd}"/></td></tr>
+
+        <tr><td></td><td> <button type="submit" class="btn btn-outline-success">Zatwierdz</button></td></tr>
+    </table>
+</form>
+
+</body>
+</html>
